@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where the Ice Feels Like Home - Sara Truffi Portfolio</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #fcfaf5;
+        font-family: Arial, sans-serif;
+        color: #5a3b4d;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      nav ul {
+        list-style: none;
+      }
+
+      nav ul li {
+        display: inline-block;
+        position: relative;
+        margin-right: 20px;
+      }
+
+      nav a {
+        text-decoration: none;
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        color: #d14f9c;
+        padding: 6px 10px;
+        display: block;
+        transition: all 0.2s ease;
+      }
+
+      nav a:hover {
+        color: #ffb6db;
+      }
+
+      nav a:active {
+        color: #aa2f79;
+      }
+
+      nav a:visited {
+        color: #c6428f;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ffffff;
+        min-width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        overflow: hidden;
+        z-index: 1000;
+      }
+
+      .dropdown-content li {
+        display: block;
+        margin: 0;
+      }
+
+      .dropdown-content a {
+        padding: 12px 16px;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #eeeeee;
+        color: #ffb6db;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .hero {
+        padding: 55px 0 30px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        font-size: 0.85em;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        color: #b87aa0;
+        margin-bottom: 12px;
+      }
+
+      .hero h1 {
+        font-size: 3em;
+        line-height: 1.1;
+        color: #d14f9c;
+        margin-bottom: 16px;
+      }
+
+      .hero p {
+        max-width: 760px;
+        margin: 0 auto;
+        line-height: 1.8;
+        color: #7a5d6d;
+        font-size: 1.05em;
+      }
+
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 24px;
+      }
+
+      .meta-row span {
+        background: #fff0f7;
+        color: #d14f9c;
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-size: 0.85em;
+        border: 1px solid #f3d6e6;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+
+      .project-button {
+        display: inline-block;
+        text-decoration: none;
+        color: #d14f9c;
+        border: 1px solid #d14f9c;
+        padding: 11px 18px;
+        border-radius: 999px;
+        font-size: 0.95em;
+        transition: all 0.2s ease;
+      }
+
+      .project-button:hover {
+        background-color: #d14f9c;
+        color: white;
+      }
+
+      .section {
+        margin-top: 85px;
+      }
+
+      .section-inner {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .section h2 {
+        color: #d14f9c;
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      .divider {
+        width: 42px;
+        height: 2px;
+        background: #d14f9c;
+        margin-bottom: 22px;
+      }
+
+      .section p {
+        line-height: 1.85;
+        color: #6d5c67;
+        margin-bottom: 18px;
+        font-size: 1.04em;
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        align-items: start;
+        max-width: 950px;
+        margin: 0 auto;
+      }
+
+      .two-column h2 {
+        color: #d14f9c;
+        font-size: 1.8em;
+        margin-bottom: 10px;
+      }
+
+      .two-column p,
+      .two-column li {
+        line-height: 1.8;
+        color: #6d5c67;
+        font-size: 1.02em;
+      }
+
+      .two-column ul {
+        padding-left: 20px;
+      }
+
+      .two-column li {
+        margin-bottom: 10px;
+      }
+
+      .audio-box {
+        max-width: 900px;
+        margin: 34px auto 0;
+        padding: 34px 28px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #f8ebf3, #fcfaf5);
+        border: 1px solid #f1dce8;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .audio-box::before {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: rgba(209, 79, 156, 0.07);
+        top: -60px;
+        right: -60px;
+      }
+
+      .audio-box::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 28px;
+        transform: translateX(-50%);
+        width: 260px;
+        height: 2px;
+        background: repeating-linear-gradient(
+          to right,
+          #d98ab7 0px,
+          #d98ab7 10px,
+          transparent 10px,
+          transparent 18px
+        );
+        opacity: 0.8;
+      }
+
+      .audio-box h3 {
+        color: #d14f9c;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .audio-box p {
+        color: #7a5d6d;
+        line-height: 1.8;
+        max-width: 700px;
+        margin: 0 auto 18px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .audio-player {
+        position: relative;
+        z-index: 1;
+        margin-top: 12px;
+      }
+
+      .audio-player audio {
+        width: 100%;
+        max-width: 620px;
+      }
+
+      .quote-block {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 28px 0 8px;
+        text-align: center;
+      }
+
+      .quote-block p {
+        font-size: 1.25em;
+        line-height: 1.7;
+        color: #c6428f;
+      }
+
+      .full-image {
+        width: 100%;
+        display: block;
+        margin: 34px auto 0;
+        border-radius: 14px;
+      }
+
+      footer {
+        background-color: #d14f9c;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 70px;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      @media (max-width: 900px) {
+        .two-column {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .container {
+          padding: 16px;
+        }
+
+        nav ul li {
+          display: block;
+          margin-right: 0;
+          margin-bottom: 8px;
+        }
+
+        .dropdown-content {
+          position: static;
+          display: block;
+          box-shadow: none;
+          background: transparent;
+          border-radius: 0;
+          min-width: unset;
+          margin-left: 10px;
+        }
+
+        .dropdown-content a {
+          padding: 8px 10px;
+          background: transparent;
+        }
+
+        .hero {
+          padding: 36px 0 18px;
+        }
+
+        .hero h1 {
+          font-size: 2.2em;
+        }
+
+        .section {
+          margin-top: 60px;
+        }
+
+        .section h2,
+        .two-column h2 {
+          font-size: 1.65em;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+
+          <li class="dropdown">
+            <a href="work.index">Projects</a>
+            <ul class="dropdown-content">
+              <li><a href="videography.html">Videography</a></li>
+              <li><a href="https://sstruffi.github.io/Branding/">Branding</a></li>
+              <li><a href="web-app.html">Web and App</a></li>
+              <li><a href="graphic-design.html">Graphic Design</a></li>
+            </ul>
+          </li>
+
+          <li><a href="aboutme.html">About Me</a></li>
+          <li><a href="contactme.html">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container">
+      <section class="hero">
+        <p class="eyebrow">Audio Documentary</p>
+        <h1>Where the Ice Feels Like Home</h1>
+        <p>
+          An audio documentary following Natalie, a competitive hockey player, through the
+          sounds, routines, and emotional intensity of life on and around the rink. 
+        </p>
+
+        <div class="meta-row">
+          <span>Audio Documentary</span>
+          <span>Field Recording</span>
+          <span>Interview</span>
+          <span>Sports Storytelling</span>
+        </div>
+
+        <div class="project-links">
+          <a href="videography.html" class="project-button">Back to Videography</a>
+        </div>
+      </section>
+    </div>
+
+    <div class="container section">
+      <div class="section-inner">
+        <h2>Project Overview</h2>
+        <div class="divider"></div>
+
+        <p>
+          This documentary explores how the rink becomes a second home and why the ice
+          keeps calling players back. It follows Natalie, a university student and
+          competitive hockey player whose life has been shaped by years of moving between
+          teams, positions, and roles on the ice. 
+        </p>
+
+        <p>
+          The project uses sound to place the listener directly beside her, moving between
+          quiet preparation and the high-energy intensity of a game. Through interview and
+          field recording, it looks at how hockey becomes part of identity, routine,
+          discipline, and community. 
+        </p>
+      </div>
+
+      <div class="audio-box">
+        <h3>Where the Ice Feels Like Home</h3>
+        <div class="audio-player">
+          <audio controls>
+            <source src="TRUFFI_PRJ3_FINAL.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="two-column">
+        <div>
+          <h2>Story Focus</h2>
+          <div class="divider"></div>
+          <p>
+            The documentary centers on Natalie’s everyday life as a hockey player, from
+            packing gear and preparing mentally at the rink to the fast, loud atmosphere
+            of a late-night game. The contrast between these quieter and more intense
+            moments shapes the structure of the piece. 
+          </p>
+        </div>
+
+        <div>
+          <h2>My Contribution</h2>
+          <div class="divider"></div>
+          <p>
+            This project is presented as an individual audio documentary by Sara Truffi.
+            It includes the treatment, interview development, sound planning, narrative
+            structure, and the overall documentary concept. 
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="quote-block">
+        <p>A journey through the sounds of hockey, exploring how the rink becomes a second home.</p>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="two-column">
+        <div>
+          <h2>Sound Design Plan</h2>
+          <div class="divider"></div>
+          <p>
+            The documentary was designed around layered sound: skates gliding across ice,
+            pucks hitting boards, sticks tapping, whistles, crowd reactions, locker room
+            ambience, gear sounds, and bench chatter. These recordings were planned to
+            create a strong sense of place and movement. 
+          </p>
+          <p>
+            The sound plan moves between two different worlds: the quieter rhythm of
+            preparation and practice, and the louder pressure of game night.
+          </p>
+        </div>
+
+        <div>
+          <h2>Interview Direction</h2>
+          <div class="divider"></div>
+          <p>
+            The interview questions focus on Natalie’s history with hockey, her routines,
+            the difference between games and practices, the sacrifices involved, and what
+            being on the ice makes her feel. They also explore how hockey has shaped who
+            she is beyond the sport itself.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="section-inner">
+        <h2>Narrative Structure</h2>
+        <div class="divider"></div>
+
+        <p>
+          The treatment is structured around a progression from opening game atmosphere,
+          to pre-game routine, to the pressure of competition, to challenges and
+          sacrifice, and finally back to the lasting emotional pull of the rink. It
+          closes by returning to the sound that begins everything: the bag dropping onto
+          the bench and the skates touching the ice again. 
+        </p>
+      </div>
+    </div>
+
+    <div class="container section">
+      <div class="section-inner">
+        <h2>Outcome</h2>
+        <div class="divider"></div>
+
+        <p>
+          This project shows my interest in sound-based storytelling and documentary work
+          that builds emotion through rhythm, atmosphere, and voice. It highlights the
+          kind of media work I want to continue creating: stories that feel immersive,
+          personal, and strongly tied to place and identity. 
+        </p>
+      </div>
+    </div>
+
+    <footer>@ 2026 Sara Truffi - All Rights Reserved</footer>
+  </body>
+</html>
